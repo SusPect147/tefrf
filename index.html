@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .qr-container {
+            text-align: center;
+        }
+        img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+        h1 {
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        if (!isMobile()) {
+            document.body.innerHTML = `
+                <div class="qr-container">
+                    <h1>It's more fun on a phone!</h1>
+                    <img src="https://via.placeholder.com/200.png?text=QR+Code" alt="QR Code">
+                </div>
+            `;
+        } else {
+            // Здесь ваш основной код для Telegram Mini App
+            document.getElementById('app').innerHTML = `
+                <h1>Welcome to the Telegram Mini App!</h1>
+                <p>This is your app content for mobile devices.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
