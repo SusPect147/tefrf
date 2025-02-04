@@ -32,7 +32,13 @@
 
     <script>
         function isMobile() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            // Проверяем User-Agent для определения мобильного устройства
+            const userAgentCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            // Проверяем размер экрана для уточнения
+            const screenWidthCheck = window.innerWidth <= 768;
+
+            return userAgentCheck || screenWidthCheck;
         }
 
         if (!isMobile()) {
